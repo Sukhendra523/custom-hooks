@@ -2,4 +2,13 @@ body {
   height: 10000px;
   width: 10000px;
 
+  .float-container {
+    position: fixed;
+    float: left;
+    top: 50px;
+    left: 100px;
+    box-shadow: 1px 0px 20px 3px #00000066;
+    padding: 1rem;
+    border-radius: 20px;
+  }
 }
