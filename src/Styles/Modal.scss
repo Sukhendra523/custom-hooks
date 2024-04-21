@@ -1,0 +1,14 @@
+.modal{
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    max-height: 50vh;
+    max-width: 50vh;
+    background: white;
+    padding: 1rem;
+    z-index: 9;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    box-sizing: border-box;
+    border: 1px solid rgb(224, 224, 224);
+    border-radius: 8px;
+}
