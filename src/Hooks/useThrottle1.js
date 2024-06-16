@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { func, number } from "prop-types";
 
-const useThrottle1 = (value, delay) => {
-  const [throttledValue, setThrottledValue] = useState(value);
+const useThrottle1 = (func, delay) => {
+  const [throttledValue, setThrottledValue] = useState(func);
 
   const lastExecuted = useRef(Date.now());
 
@@ -12,7 +12,7 @@ const useThrottle1 = (value, delay) => {
       const timeElapsed = now - lastExecuted.current;
 
       if (timeElapsed >= delay) {
-        setThrottledValue(value);
+        setThrottledValue(func);
         lastExecuted.current = now;
       }
     }, delay - (Date.now() - lastExecuted.current));
@@ -20,13 +20,13 @@ const useThrottle1 = (value, delay) => {
     return () => {
       clearTimeout(handler);
     };
-  }, [delay, value]);
+  }, [func, delay]);
 
   return throttledValue;
 };
 
 useThrottle1.propTypes = {
-  value: func,
+  func: func,
   delay: number,
 };
 
