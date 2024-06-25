@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
-// import useThrottle2 from "../Hooks/useThrottle2";
-import useThrottle1 from "../Hooks/useThrottle1";
+import useThrottle from "../Hooks/useThrottle";
 
 const UseThrottleDemo = ()=> {
   const [windowSize, setWindowSize] = useState({});
-  const throttledHandleScroll = useThrottle1(handleScroll, 5000);
-  const throttledHandleResize = useThrottle1(handleResize, 5000);
+  const throttledHandleScroll = useThrottle(handleScroll, 5000);
+  const throttledHandleResize = useThrottle(handleResize, 5000);
 
 
   useEffect(() => {
@@ -37,7 +36,7 @@ const UseThrottleDemo = ()=> {
 
   return (
     <div className="float-container">
-      <h1>Throttling for after every 5000ms with useThrottle1 </h1>
+      <h1>Throttling for after every 5000ms with useThrottle </h1>
       {Object.keys(windowSize).map((key, i) => (
         <p key={i}>
           <b>{key}: </b> <span>{windowSize[key]}</span>
